@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Banapassport Decal Maker</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="gui">
+      <h2>🎨 Decal Controls</h2>
+      <div class="control-group">
+        <label for="imageLoader">Upload Background Image (Optional):</label>
+        <input
+          type="file"
+          id="imageLoader"
+          name="imageLoader"
+          accept="image/png, image/jpeg"
+        />
+        <p class="info-text">
+          💡 Drag to move & use the scroll wheel to zoom the image.
+        </p>
+      </div>
+      <div class="control-group">
+        <label for="backgroundColorPicker">Background Color:</label>
+        <input type="color" id="backgroundColorPicker" value="#808080" />
+      </div>
+      <div class="control-group toggle">
+        <label for="toggleOverlay">Show Overlay</label>
+        <input type="checkbox" id="toggleOverlay" checked />
+      </div>
+      <div class="control-group toggle">
+        <label for="toggleCardCutout">Show Cutout Guide</label>
+        <input type="checkbox" id="toggleCardCutout" checked />
+      </div>
+      <a id="downloadLink" download="custom-banapassport.png">
+        <button>Download Decal</button>
+      </a>
+    </div>
+
+    <div id="canvas-container">
+      <canvas id="canvas" width="856" height="540"></canvas>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
