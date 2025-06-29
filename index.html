@@ -8,9 +8,9 @@
   </head>
   <body>
     <div id="gui">
-      <h2>🎨 Decal Controls</h2>
+      <h2>🎨 Banapassport Designer</h2>
       <div class="control-group">
-        <label for="imageLoader">Upload Background Image (Optional):</label>
+        <label for="imageLoader">Upload Background Image:</label>
         <input
           type="file"
           id="imageLoader"
@@ -18,7 +18,7 @@
           accept="image/png, image/jpeg"
         />
         <p class="info-text">
-          💡 Drag to move & use the scroll wheel to zoom the image.
+          💡 Paste or upload an image.<br />Drag & scroll to position it.
         </p>
       </div>
       <div class="control-group">
@@ -33,13 +33,49 @@
         <label for="toggleCardCutout">Show Cutout Guide</label>
         <input type="checkbox" id="toggleCardCutout" checked />
       </div>
-      <a id="downloadLink" download="custom-banapassport.png">
-        <button>Download Decal</button>
-      </a>
+
+      <button id="downloadButton">Download Sticker</button>
     </div>
 
     <div id="canvas-container">
       <canvas id="canvas" width="856" height="540"></canvas>
+    </div>
+
+    <div id="downloadModal" class="modal-overlay">
+      <div class="modal-content">
+        <span class="close-button">&times;</span>
+        <h3>Download Options</h3>
+        <p>Choose the format you need for your sticker.</p>
+        <div class="modal-buttons">
+          <button id="downloadHiResButton">Download (High-Resolution)</button>
+          <button id="downloadPrintButton">Download (Print Size)</button>
+        </div>
+        <p class="modal-note">
+          <strong>High-Resolution:</strong> Best for digital use (1024x645).<br /><strong
+            >Print Size:</strong
+          >
+          300 PPI file for high-quality printing.
+        </p>
+      </div>
+    </div>
+
+    <div id="instructionModal" class="modal-overlay">
+      <div class="modal-content">
+        <span class="close-button">&times;</span>
+        <h3>Printing Instructions</h3>
+        <p class="instruction-text">
+          After placing the downloaded file in an editor (like Google Docs or
+          Word), you <strong>must manually resize the image.</strong>
+        </p>
+        <p class="instruction-text">
+          Set the dimensions to:<br /><strong
+            >3.37" wide &times; 2.125" tall</strong
+          >.
+        </p>
+        <div class="modal-buttons">
+          <button id="closeInstructionModalButton">OK</button>
+        </div>
+      </div>
     </div>
 
     <script src="app.js"></script>

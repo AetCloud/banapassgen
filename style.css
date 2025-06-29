@@ -55,7 +55,6 @@ body {
   line-height: 1.4;
 }
 
-input[type="text"],
 input[type="file"] {
   width: 100%;
   padding: 8px;
@@ -119,4 +118,75 @@ canvas.interactive {
 
 canvas.interactive:active {
   cursor: grabbing;
+}
+
+.modal-overlay {
+  visibility: hidden;
+  position: fixed;
+  z-index: 100;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.modal-overlay.show {
+  visibility: visible;
+  opacity: 1;
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 25px;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  color: #aaa;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close-button:hover {
+  color: #333;
+}
+
+.modal-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin: 20px 0;
+  align-items: center;
+}
+
+.modal-buttons #closeInstructionModalButton {
+  width: auto;
+  min-width: 120px;
+}
+
+.modal-note {
+  font-size: 12px;
+  color: #666;
+  line-height: 1.5;
+  margin-top: 15px;
+}
+
+.instruction-text {
+  line-height: 1.6;
+  margin-bottom: 15px;
 }
