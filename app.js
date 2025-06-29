@@ -6,6 +6,10 @@ const toggleOverlay = document.getElementById("toggleOverlay");
 const toggleCardCutout = document.getElementById("toggleCardCutout");
 const backgroundColorPicker = document.getElementById("backgroundColorPicker");
 
+const guiPanel = document.getElementById("gui");
+const panelToggleButton = document.getElementById("panelToggleButton");
+const closePanelButton = document.getElementById("closePanelButton");
+
 const downloadModal = document.getElementById("downloadModal");
 const downloadCloseButton = downloadModal.querySelector(".close-button");
 const downloadHiResButton = document.getElementById("downloadHiResButton");
@@ -226,18 +230,24 @@ window.addEventListener("paste", (e) => {
   }
 });
 
-downloadButton.addEventListener("click", () =>
-  downloadModal.classList.add("show")
+panelToggleButton.addEventListener("click", () =>
+  guiPanel.classList.toggle("show")
+);
+closePanelButton.addEventListener("click", () =>
+  guiPanel.classList.remove("show")
 );
 
-downloadCloseButton.addEventListener("click", () =>
-  downloadModal.classList.remove("show")
+downloadButton.addEventListener("click", () =>
+  downloadModal.classList.add("show")
 );
 instructionCloseButton.addEventListener("click", () =>
   instructionModal.classList.remove("show")
 );
 closeInstructionModalButton.addEventListener("click", () =>
   instructionModal.classList.remove("show")
+);
+downloadCloseButton.addEventListener("click", () =>
+  downloadModal.classList.remove("show")
 );
 
 window.addEventListener("click", (e) => {

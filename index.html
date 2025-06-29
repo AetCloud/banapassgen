@@ -3,43 +3,82 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Banapassport Decal Maker</title>
+    <title>Banapassport Designer</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div id="gui">
-      <h2>🎨 Banapassport Designer</h2>
-      <div class="control-group">
-        <label for="imageLoader">Upload Background Image:</label>
-        <input
-          type="file"
-          id="imageLoader"
-          name="imageLoader"
-          accept="image/png, image/jpeg"
-        />
-        <p class="info-text">
-          💡 Paste or upload an image.<br />Drag & scroll to position it.
-        </p>
-      </div>
-      <div class="control-group">
-        <label for="backgroundColorPicker">Background Color:</label>
-        <input type="color" id="backgroundColorPicker" value="#808080" />
-      </div>
-      <div class="control-group toggle">
-        <label for="toggleOverlay">Show Overlay</label>
-        <input type="checkbox" id="toggleOverlay" checked />
-      </div>
-      <div class="control-group toggle">
-        <label for="toggleCardCutout">Show Cutout Guide</label>
-        <input type="checkbox" id="toggleCardCutout" checked />
-      </div>
-
-      <button id="downloadButton">Download Sticker</button>
-    </div>
-
     <div id="canvas-container">
       <canvas id="canvas" width="856" height="540"></canvas>
     </div>
+
+    <header class="page-header">
+      <h1>Banapassport Designer</h1>
+      <button id="downloadButton" class="header-btn">Download Sticker</button>
+    </header>
+
+    <aside id="gui" class="side-panel">
+      <div class="panel-header">
+        <h3>Designer Settings</h3>
+        <button id="closePanelButton" class="icon-btn" title="Close Settings">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+      <div class="panel-content">
+        <div class="control-group">
+          <label for="imageLoader">Upload Background Image:</label>
+          <input
+            type="file"
+            id="imageLoader"
+            name="imageLoader"
+            accept="image/png, image/jpeg"
+          />
+          <p class="info-text">
+            💡 Paste or upload an image.<br />Drag & scroll to position it.
+          </p>
+        </div>
+        <div class="control-group">
+          <label for="backgroundColorPicker">Background Color:</label>
+          <input type="color" id="backgroundColorPicker" value="#07071a" />
+        </div>
+        <div class="control-group toggle">
+          <label for="toggleOverlay">Show Overlay</label>
+          <input type="checkbox" id="toggleOverlay" checked />
+        </div>
+        <div class="control-group toggle">
+          <label for="toggleCardCutout">Show Cutout Guide</label>
+          <input type="checkbox" id="toggleCardCutout" checked />
+        </div>
+      </div>
+    </aside>
+
+    <button id="panelToggleButton" class="panel-trigger" title="Open Settings">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <polyline points="9 18 15 12 9 6"></polyline>
+      </svg>
+    </button>
 
     <div id="downloadModal" class="modal-overlay">
       <div class="modal-content">
@@ -47,8 +86,12 @@
         <h3>Download Options</h3>
         <p>Choose the format you need for your sticker.</p>
         <div class="modal-buttons">
-          <button id="downloadHiResButton">Download (High-Resolution)</button>
-          <button id="downloadPrintButton">Download (Print Size)</button>
+          <button id="downloadHiResButton" class="btn btn-primary">
+            Download (High-Resolution)
+          </button>
+          <button id="downloadPrintButton" class="btn btn-primary">
+            Download (Print Size)
+          </button>
         </div>
         <p class="modal-note">
           <strong>High-Resolution:</strong> Best for digital use (1024x645).<br /><strong
@@ -73,7 +116,9 @@
           >.
         </p>
         <div class="modal-buttons">
-          <button id="closeInstructionModalButton">OK</button>
+          <button id="closeInstructionModalButton" class="btn btn-secondary">
+            OK
+          </button>
         </div>
       </div>
     </div>
