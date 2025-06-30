@@ -92,9 +92,6 @@ function drawCanvas() {
   }
 }
 
-/**
- * Reusable drawing logic for any canvas size.
- */
 function drawToCanvas(targetCtx, width, height) {
   const scaleFactor = width / canvas.width;
 
@@ -124,9 +121,6 @@ function drawToCanvas(targetCtx, width, height) {
   }
 }
 
-/**
- * Generates a high-resolution image based on the overlay's original size.
- */
 function generateHiResImage() {
   const printWidth = 1024;
   const printHeight = 645;
@@ -145,9 +139,6 @@ function generateHiResImage() {
   downloadModal.classList.remove("show");
 }
 
-/**
- * Generates a 300 PPI image sized for printing and shows the instruction modal.
- */
 function generatePrintImage() {
   const printDPI = 300;
   const cardWidthInches = 3.37;
@@ -175,9 +166,6 @@ function generatePrintImage() {
   }, 100);
 }
 
-/**
- * Reusable function to handle loading an image from a File object.
- */
 function loadImageFromFile(file) {
   if (!file || !file.type.startsWith("image/")) {
     console.error("The provided file is not a valid image.");
