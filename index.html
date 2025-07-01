@@ -2,23 +2,16 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no"
+    />
     <title>Banapassport Designer</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div id="canvas-container">
-      <canvas id="canvas" width="856" height="540"></canvas>
-    </div>
-
-    <header class="page-header">
-      <h1>Banapassport Designer</h1>
-      <button id="downloadButton" class="header-btn">Download Sticker</button>
-    </header>
-
     <aside id="gui" class="side-panel">
       <div class="panel-header">
-        <h3>Designer Settings</h3>
         <button id="closePanelButton" class="icon-btn" title="Close Settings">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -80,6 +73,56 @@
       </svg>
     </button>
 
+    <main id="main-content">
+      <header class="page-header">
+        <h1>Banapassport Designer</h1>
+        <button id="downloadButton" class="header-btn">Download Sticker</button>
+      </header>
+
+      <div id="canvas-container">
+        <canvas id="canvas" width="856" height="540"></canvas>
+      </div>
+    </main>
+
+    <div id="contextMenu" class="context-menu">
+      <div class="context-group">
+        <label for="rotation-slider"
+          >Rotation: <span id="rotation-value">0</span>&deg;</label
+        >
+        <input
+          type="range"
+          id="rotation-slider"
+          min="-180"
+          max="180"
+          value="0"
+          step="1"
+        />
+      </div>
+      <div class="context-group">
+        <label for="scale-slider"
+          >Scale: <span id="scale-value">100</span>%</label
+        >
+        <input
+          type="range"
+          id="scale-slider"
+          min="100"
+          max="300"
+          value="100"
+          step="1"
+        />
+      </div>
+      <div class="context-group context-group-xy">
+        <div>
+          <label for="x-input">X</label>
+          <input type="number" id="x-input" class="xy-input" />
+        </div>
+        <div>
+          <label for="y-input">Y</label>
+          <input type="number" id="y-input" class="xy-input" />
+        </div>
+      </div>
+    </div>
+
     <div id="downloadModal" class="modal-overlay">
       <div class="modal-content">
         <span class="close-button">&times;</span>
@@ -118,6 +161,35 @@
         <div class="modal-buttons">
           <button id="closeInstructionModalButton" class="btn btn-secondary">
             OK
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div id="controlsHelpModal" class="modal-overlay">
+      <div class="modal-content">
+        <span class="close-button">&times;</span>
+        <h3>Controls</h3>
+        <div id="desktop-help">
+          <p class="instruction-text">
+            <strong>Click & Drag:</strong> Move the image.<br /><strong
+              >Mouse Wheel:</strong
+            >
+            Zoom in and out.<br /><strong>Right-Click:</strong> Open transform
+            menu for precise adjustments.
+          </p>
+        </div>
+        <div id="mobile-help">
+          <p class="instruction-text">
+            <strong>One Finger:</strong> Drag to move the image.<br /><strong
+              >Two Fingers:</strong
+            >
+            Pinch to zoom in and out.
+          </p>
+        </div>
+        <div class="modal-buttons">
+          <button id="closeControlsHelpButton" class="btn btn-secondary">
+            Got it!
           </button>
         </div>
       </div>
